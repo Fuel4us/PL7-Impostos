@@ -4,7 +4,7 @@ package impostos;
  *
  * @author Gonçalo Fonseca 1150503
  */
-public abstract class TrabContaProp extends Contribuinte {
+public class TrabContaProp extends Contribuinte {
 
     private String profissao;
 
@@ -35,6 +35,15 @@ public abstract class TrabContaProp extends Contribuinte {
 
     public void setProfissao(String profissao) {
         this.profissao = profissao;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Descrição Trabalhador Conta Própria:%n%s Profissão: %s%n", super.toString(), this.profissao);
+    }
+    
+    public float taxaRT() {
+        return TrabContaProp.taxaRT;
     }
 
     /**

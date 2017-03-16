@@ -4,7 +4,7 @@ package impostos;
  *
  * @author Gonçalo Fonseca 1150503
  */
-public abstract class TrabContaOutrem extends Contribuinte {
+public class TrabContaOutrem extends Contribuinte {
 
     private String Empresa;
 
@@ -40,6 +40,11 @@ public abstract class TrabContaOutrem extends Contribuinte {
      */
     public void setEmpresa(String Empresa) {
         this.Empresa = Empresa;
+    }
+    
+     @Override
+    public String toString() {
+        return String.format("Descrição Trabalhador Conta Outrém:%n%s Nome da Empresa: %s%n", super.toString(), this.Empresa);
     }
 
     public static float getTaxaOR() {
@@ -78,14 +83,14 @@ public abstract class TrabContaOutrem extends Contribuinte {
         taxaRT2 = aTaxaRT2;
     }
 
-    protected float TaxaRT() {
+    protected float taxaRT() {
         if (this.getRt() > TrabContaOutrem.valorRef) {
-            return taxaRT2;
+            return TrabContaOutrem.taxaRT2;
         } else {
-            return taxaRT1;
+            return TrabContaOutrem.taxaRT1;
         }
     }
-
+    
     protected float taxaOR() {
         return TrabContaOutrem.TaxaOR;
     }
